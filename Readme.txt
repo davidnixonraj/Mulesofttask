@@ -1,3 +1,5 @@
+in cmd open the folder location using cd command and follow the steps below
+
 1. To Connect Database Sqlite 
 compile "DBConnect.java" first,
 then to run use the command " java -classpath ".;sqlite-jdbc-3.7.2.jar" DBConnect "
@@ -14,3 +16,5 @@ CREATE TABLE Movies (Movid INTEGER PRIMARY KEY AUTOINCREMENT,
 			Yearofrelease INTEGER,
 			Director VARCHAR(15)
 			)
+
+3. now compile the Query.java and run it using the command "java -classpath ".;sqlite-jdbc-3.7.2.jar" Query"

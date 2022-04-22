@@ -11,8 +11,9 @@ public class Query
    System.out.println("1. Insert");
    System.out.println("2. Update");
    System.out.println("3. Delete");
-   System.out.println("4. Select");
-   System.out.println("5. Exit");
+   System.out.println("4. Select all");
+   System.out.println("5. Select with Actor name");
+   System.out.println("6. Exit");
    Scanner reader = new Scanner(System.in);
    System.out.println("Enter a choice: ");
    int n = reader.nextInt();
@@ -24,7 +25,7 @@ public class Query
     c = DriverManager.getConnection("jdbc:sqlite:SqliteJavaDB.db");
     c.setAutoCommit(false);
     stmt = c.createStatement();
-    String movie="",Actor="",Actress="",Director="",sql="";
+    String movie="",Actor="",Actress="",Director="",sql="",Actor1="";
     int yor,Movid;
     Scanner scanName;
     switch(n)
@@ -99,6 +100,26 @@ public class Query
      break; 
 
      case 5:
+     scanName=new Scanner(System.in);
+     System.out.println("Enter Actor Name to be viewed: \n note: Enter inside double quotes ");
+     Actor1=scanName.nextLine();
+
+     ResultSet rs2 = stmt.executeQuery("SELECT * FROM Movies WHERE Actor ="+ Actor1 +";");
+     System.out.println("MOVID\t MovName\t Actor\t Actress\t YearOfRelease\t Director ");
+     while ( rs2.next() ) 
+     {
+      Movid = rs2.getInt("Movid");
+      movie = rs2.getString("MovName");
+      Actor = rs2.getString("Actor");
+      Actress = rs2.getString("Actress");     
+      yor = rs2.getInt("Yearofrelease");
+      Director = rs2.getString("Director");
+      System.out.println(Movid+"\t "+movie+" \t "+Actor+"\t "+Actress+" \t "+yor+" \t\t "+Director);
+     }
+     rs2.close();
+     break;
+
+     case 6:
      System.exit(0);
      break;
 
