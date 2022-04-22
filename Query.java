@@ -39,6 +39,7 @@ public class Query
      Actress=scanName.nextLine();
      System.out.println("Enter Year of Release:");
      yor=scanName.nextInt();
+     scanName.nextLine();
      System.out.println("Enter Director Name:");
      Director=scanName.nextLine();
      sql = "INSERT INTO Movies (MovName,Actor,Actress,Yearofrelease,Director) " +
@@ -53,6 +54,7 @@ public class Query
      scanName=new Scanner(System.in);
      System.out.println("Enter Movie ID:");
      Movid=scanName.nextInt();
+     scanName.nextLine();
      System.out.println("Enter Movie Name:");
      movie=scanName.nextLine();
      System.out.println("Enter  Actor Name:");
@@ -61,6 +63,7 @@ public class Query
      Actress=scanName.nextLine();
      System.out.println("Enter Year of Release:");
      yor=scanName.nextInt();
+     scanName.nextLine();
      System.out.println("Enter Director Name:");
      Director=scanName.nextLine();
      sql = "UPDATE Movies SET MovName = '"+movie+ "',Actor=" +
@@ -90,7 +93,7 @@ public class Query
       Actress = rs.getString("Actress");     
       yor = rs.getInt("Yearofrelease");
       Director = rs.getString("Director");
-      System.out.println(Movid+"\t "+movie+" \t "+Actor+"\t "+Actress+"\t \t "+yor+" \t "+Director);
+      System.out.println(Movid+"\t "+movie+" \t "+Actor+"\t "+Actress+" \t "+yor+" \t\t "+Director);
      }
      rs.close();
      break; 
